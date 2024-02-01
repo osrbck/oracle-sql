@@ -1,2 +1,2 @@
 # oracle-sql
-Order Schemas &amp; İdari Modüller - Oracle SQL Dev
+İdari Modüller(TR) - Oracle SQL Dev Exs
