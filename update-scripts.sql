@@ -1,4 +1,26 @@
 --------------------------------------------
+--INSERT - Bir Tabloya Kayıt Ekleme
+--------------------------------------------
+
+insert into konum(konum_id, konum_adi, il_kodu)
+values (10, 'Ankara-Yenimahalle', 6);
+
+--------------------------------------------
+
+insert into konum
+values (11, 'İstanbul-Pendik', 34);
+
+--------------------------------------------
+
+insert into ceza_bilgi
+values(5021, 'Yüz Kızartıcı Suç', NULL, NULL);
+
+--------------------------------------------
+
+insert into ceza_bilgi
+values(6761, 'Uzaklaştırma', sysdate, to_date(’31.12.2011’, ‘DD.MM.YYYY’));
+
+--------------------------------------------
 --UPDATE - Verileri Güncelleme
 --------------------------------------------
 
@@ -19,6 +41,24 @@ update personel set
 maas  = (select maas  from personel where personel_id = 5004),
 unvan = (select unvan from personel where personel_id = 5004)
 where personel_id = 5005
+
+--------------------------------------------
+
+update personel p
+set maas = maas * 1.25 
+where p.dept_id in 
+    (
+        select d.dept_id from departman d
+        where upper(d.dept_ismi) like '%CRM%'
+    )
+
+--------------------------------------------
+
+update iller i set bolge_adi = 
+    (
+        select bolge_adi from bolgeler b 
+        where b.bolge_kodu = i.bolge_kodu
+    );
 
 --------------------------------------------
 --UPDATE JOIN

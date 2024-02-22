@@ -276,3 +276,12 @@ where pr.yonetici_id = om.yonetici_id
       and om.ortalama > 4000
 
 
+
+--FOR UPDATE
+--------------------------------------------
+
+select * from personel where unvan = 'TEKNİKER' for update;
+
+--Diğer kullanıcı ile
+update egitim.personel set maas = 4000 where personel_id = 5020;
+Commit;
